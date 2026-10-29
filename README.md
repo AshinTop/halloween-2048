@@ -1,158 +1,109 @@
-# Pumpkin 2048 — Halloween 2048 Game with Lantern Trials
+[English](README.md) · [简体中文](README.zh-CN.md) · [Español](README.es.md) · [Português (Brasil)](README.pt-BR.md) · [日本語](README.ja.md)
 
-**Slide, merge, and wake the Pumpkin King.** Pumpkin 2048 brings the familiar 4×4 number puzzle into a moonlit Halloween garden, with original pumpkin artwork and three short, deterministic challenges that ask you to think about *where* a merge ends.
+# Pumpkin 2048 — Halloween Number Puzzle and Lantern Trials
 
-[**Play online**](https://halloween-2048.crazy3d.org/) · [Watch the visual introduction](docs/media/intro.mp4) · [How to play](#how-to-play) · [Embed the game](#embed-pumpkin-2048)
+🎃 Slide a little pumpkin, make a bigger pumpkin, and wake the garden one lantern at a time. **Pumpkin 2048** brings the familiar 4×4 number puzzle to a moonlit Halloween garden. Play an open-ended Classic round or a short Lantern Trial where the final position matters as much as the number.
 
-**Live deployment:** Play on Cloudflare using the link above. The site is deployed from this GitHub repository. Hosting scripts and request logging may be added by Cloudflare independently of the game code.
+**[Play online](https://halloween-2048.crazy3d.org/)** · [Explore all 12 Halloween games](https://github.com/AshinTop/halloween-games) · [⭐ Star this repository](https://github.com/AshinTop/halloween-2048)
 
-[Video player and transcript](https://halloween-2048.crazy3d.org/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
+README translations cover five languages. The **game interface currently supports English and Simplified Chinese only**.
 
-[![Pumpkin 2048 gameplay: a moonlit four-by-four number board with pumpkin tiles and garden milestones](docs/images/gameplay.jpg)](docs/media/intro.mp4)
+![Pumpkin 2048 with a four-by-four number board, illustrated pumpkins, and glowing garden milestones](docs/images/gameplay.jpg)
 
-If you enjoy this Halloween puzzle or find the implementation useful, **[star this repository](https://github.com/AshinTop/halloween-2048)** to keep it in your collection. Bug reports with the game mode, browser, and steps to reproduce are welcome.
+## What makes it special
 
-## What makes this garden different?
-
-Pumpkin 2048 has two complementary ways to play. **Classic Garden** is an open-ended score chase using traditional 2048 merge rules. **Lantern Trials** turn the board into a positional puzzle: reach a specified number on a glowing square before your move allowance runs out.
-
-- **Classic 4×4 2048:** combine matching values, build a high score, reach 2048, and continue beyond it.
-- **Three authored Lantern Trials:** fixed starting boards, no random tile spawns, and complete solutions verified by automated tests.
-- **One Moon Swap per trial:** exchange two occupied tiles with different values at the cost of one move. Every trial can also be solved without the spell.
-- **A garden that lights up:** reaching 128, 512, 1024, and 2048 illuminates the illustrated lantern milestones.
-- **Undo and local progress:** restore the previous board, score, move count, and spell state; keep classic progress and personal records on the same browser.
-- **English and Simplified Chinese:** switch language in the game without leaving the board.
-- **Self-contained presentation:** original SVG artwork, locally synthesized sound after user interaction, reduced-motion support, and no external game engine or CDN.
-
-The game was made for [2048 Online](https://2048online.top) and the Midnight Candy Club Halloween collection. It can also run independently from any static web host.
+- **Classic Garden:** familiar 2048 merging, a best-score chase, and continued play after reaching 2048.
+- **Three Lantern Trials:** fixed boards, a marked destination, and a move allowance; no random tiles appear during these challenges.
+- **One Moon Swap per trial:** trade two occupied, differently numbered tiles at the cost of one move. All three trials also have verified solutions without it.
+- Original pumpkin SVG art, four garden milestones at 128, 512, 1024, and 2048, optional synthesized chimes, and reduced-motion support.
+- Undo restores the board, score, move count, and unused spell state. Compact controls work with touch, mouse, or keyboard.
 
 ## How to play
 
-### Classic Garden
+In **Classic Garden**, slide every tile in a chosen direction. Equal numbers that meet combine: two 8s become 16. A newly merged tile cannot merge twice in the same move. Each successful move adds a 2 or 4; pressing a direction that changes nothing adds no tile. Reach 2048, then continue if you want. A full board ends the round only when no legal move remains.
 
-Move all tiles in one direction. Two equal values that meet become a single tile with their combined value: two 8s become 16, for example. A newly merged tile cannot merge again during the same move. A successful move adds a new 2 or 4; a move that leaves the board unchanged does not add a tile.
-
-Build a 2048 tile to awaken the Pumpkin King. You can then continue growing larger tiles. A full board is not automatically a loss: the game ends only when no direction offers a legal move.
-
-### Lantern Trials
-
-Select **Lantern Trials**, then choose one of the three puzzles. The goal strip states the target number, marked destination, and move allowance. These boards do not spawn new tiles, so the same starting position always supports the same solution.
-
-For a Moon Swap, select the spell, then select two numbered tiles with different values. Empty squares cannot be swapped. The exchange costs one move and uses the trial's single spell. Undo restores the spell if you undo that exchange.
+In **Lantern Trials**, read the goal strip before moving. You must create the stated number on the glowing square within the allowance. The fixed starting board does not generate new tiles. To use Moon Swap, select the spell and then two occupied tiles with different values. Empty squares and equal values cannot be swapped. The spell spends one move; undoing that exchange restores it.
 
 ## Controls
 
 | Action | Input |
 | --- | --- |
-| Slide the board | Arrow keys, touch swipe, or on-screen direction buttons |
-| Undo | **U** or the Undo button |
-| Use Moon Swap | Select the spell, then two different numbered tiles |
-| Cancel a spell selection | **Esc** |
-| Restart | New Garden in classic mode; Retry in a trial |
-| Help, sound, language | Header buttons |
+| Slide | Arrow keys, swipe, or visible direction buttons |
+| Undo | **U** or Undo |
+| Moon Swap | Select the spell, then two differently numbered tiles |
+| Clear a spell selection | **Esc** |
+| Restart / help / sound | Use the in-game controls; focus the iframe for keyboard input |
 
-Undo history is available during the current page session and retains up to 50 previous moves. Classic save data and the best score are stored separately from that history. Undo does not erase an already achieved personal best.
+## A little strategy
 
-## Share a challenge
+Keep useful equal values within reach instead of chasing every immediate merge. In a trial, study the target square before committing to a direction: a large tile in the wrong place is not a completed challenge. Moon Swap can rescue a plan, but its move cost still matters. Undo is a good way to compare two routes rather than restarting after every experiment.
 
-The Share button prepares a result and game link. On supported devices it opens the system share sheet; otherwise it attempts to copy the text. The three trial links are reproducible:
+## Progress and challenge links
 
-- [Lantern Trial 1](https://halloween-2048.crazy3d.org/?trial=1)
-- [Lantern Trial 2](https://halloween-2048.crazy3d.org/?trial=2)
-- [Lantern Trial 3](https://halloween-2048.crazy3d.org/?trial=3)
+Classic progress, preferences, and local records stay in the current browser when storage is available. Undo history lasts for the current page session and holds up to **50 moves**; it does not erase an already achieved best score. Try [Lantern Trial 1](https://halloween-2048.crazy3d.org/?trial=1), or change the number to 2 or 3. Sharing identifies the challenge and actual result; unfinished trial sharing does not claim a win. System sharing or clipboard copying falls back to visible text when unavailable.
 
-In-progress trial sharing identifies the challenge without claiming it has been won. If sharing or clipboard access is unavailable, the game displays the result text.
+## Screenshots and video
+
+![Pumpkin 2048 compact iframe showing the board, score, trial controls, and direction buttons](docs/images/mobile.jpg)
+
+Actual game screenshot from a compact browser iframe; this demonstrates the small-window layout, not a physical-phone test.
+
+[Video player and transcript](https://halloween-2048.crazy3d.org/intro.html) · [Download the MP4](docs/media/intro.mp4)
+
+The **24-second silent introduction** combines actual screenshots and captions. It is a visual tour, not continuous gameplay footage or an audio demonstration.
 
 ## Frequently asked questions
 
-### Does this change the classic 2048 rules?
+### Does Moon Swap work in Classic Garden?
 
-Classic Garden keeps the traditional 4×4 merging rules. The positional goals and Moon Swap belong to Lantern Trials, so the two modes have clearly different objectives.
+No. It belongs to Lantern Trials. Each trial allows one swap, and the move budget includes it.
 
-### Are the trials random or luck based?
+### Is every trial solvable?
 
-No new tiles spawn in trials. Their initial positions are fixed, and all three have tested solutions that do not require Moon Swap.
+Yes: the three authored boards have complete tested no-spell solutions. That does not mean every sequence of moves will succeed.
 
-### Does the game save my progress?
+### Can I continue the same save on another device?
 
-Classic progress, highest score, completed trials, language, and sound preference are saved locally when browser storage is available. Saves belong to the browser and origin where you played; there is no account, cloud synchronization, or online leaderboard. The game still runs when storage is blocked.
+There is no account synchronization. Records belong to the browser and site origin; blocked storage does not prevent play.
 
-### Can I play on a phone or inside an iframe?
+## Run locally and embed
 
-The interface supports touch swipes and visible direction buttons. Embedded and short windows use a compact layout, while larger standalone windows can show the garden illustration. See [EMBEDDING.md](EMBEDDING.md) for tested browser viewport sizes and integration details. Responsive browser checks are not a claim of testing every physical phone.
-
-### Is an installation or sign-in required?
-
-The standalone game is a static browser application. It needs no game account, API key, package download, or external media player. Serve it over HTTP or HTTPS so the browser can load its JavaScript modules.
-
-## Run locally
-
-From the repository directory:
+Serve the repository root over HTTP:
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Open [http://localhost:4173](http://localhost:4173). There is no build step or dependency installation. Opening `index.html` directly with `file://` may block ES module loading.
+Open **http://localhost:4173/**. No build or dependencies are needed. Use HTTP: `file://` can block JavaScript modules.
 
-Run the checks with Node.js:
+Run the included Node checks:
 
 ```sh
 npm test
 ```
 
-For separate per-file output:
-
-```sh
-node tests/engine.test.js
-node tests/startup.test.js
-```
-
-The eight checks cover merge-once semantics, no-op behavior, deterministic spawning, loss detection, spell costs, the complete trial solutions, and defensive startup parsing. Visual and interaction results are recorded separately from engine tests.
-
-## Compact-player walkthrough
-
-![Pumpkin 2048 in a compact host iframe, with the board, score, trial controls and directional buttons](docs/images/mobile.jpg)
-
-Use the four direction buttons or swipe the board to merge. The score and challenge goal stay with the board, and Undo lets you compare the previous move. The compact player gives the puzzle the space normally used by the garden illustration.
-
-*Actual interface captured in a browser iframe sized for the host player. This is a compact-window illustration, not a physical-phone test.*
-
-## Embed Pumpkin 2048
-
-Publish the repository root, then use its served URL:
+Tests cover merge-once behavior, unchanged moves, deterministic spawning, losses, spell costs, full trial solutions, and defensive preference/link parsing. They check rules, not physical-phone performance.
 
 ```html
-<iframe
-  src="https://halloween-2048.crazy3d.org/?embed=1"
-  title="Pumpkin 2048 — Halloween number puzzle"
-  width="100%"
-  height="654"
-  scrolling="no"
-  allow="fullscreen"
-  style="display:block;border:0"
-></iframe>
+<iframe src="https://halloween-2048.crazy3d.org/?embed=1"
+  title="Pumpkin 2048"
+  style="display:block;width:100%;height:654px;border:0"
+  allow="fullscreen" allowfullscreen></iframe>
 ```
 
-The game sizes itself against the actual iframe viewport. Allocate space for any toolbar in the parent site rather than overlaying it on the board. It does not inspect or modify the parent page. See [EMBEDDING.md](EMBEDDING.md) for the full integration notes.
+The desktop baseline is **1160×654 CSS pixels**. Compact browser review also covered 390×650, 390×794, and 844×340 windows. The board adapts to its own iframe viewport; help and result text can scroll inside their panels.
 
-## Project structure
+See [EMBEDDING.md](EMBEDDING.md) for sizing, storage, input focus, and permissions. Measure available iframe height after the host toolbar.
 
-| File | Responsibility |
-| --- | --- |
-| `engine.js` | Pure board, merge, spawn, trial, and spell rules |
-| `startup.js` | Preference and URL parsing defenses |
-| `app.js` | Controls, rendering, localization, persistence, and sound |
-| `index.html`, `style.css`, `icon.svg` | Interface and original vector artwork |
-| `tests/` | Engine and startup regression checks |
+## More little Halloween adventures
 
-## More Halloween games
+- **[Pumpkin Shift](https://halloween-pumpkin-shift.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-pumpkin-shift) — Slide numbered tiles through 12 rooms with limited Moon Glides.
+- **[Witch’s Candy Blocks](https://halloween-block-blast.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-block-blast) — Fit candy shapes into an 8×8 board and complete potion orders.
+- **[Ghost Lanterns 3D](https://halloween-3d.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-3d) — Light a pumpkin garden with classic Lights Out logic and soul links.
+- **[Trick-or-Treat TriPeaks](https://halloween-tripeaks.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-tripeaks) — Build adjacent-rank card chains across eight rescue deals.
 
-- **[Pumpkin Shift](https://halloween-pumpkin-shift.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-pumpkin-shift) — 12 numbered sliding puzzles with limited Moon Glides.
-- **[Witch’s Candy Blocks](https://halloween-block-blast.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-block-blast) — an 8×8 block-placement puzzle with potion orders.
-- **[Ghost Lanterns 3D](https://halloween-3d.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-3d) — spatial Lights Out puzzles with linked lanterns.
-- **[Trick-or-Treat TriPeaks](https://halloween-tripeaks.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-tripeaks) — Halloween card chains and eight solvable rescue deals.
+## Credits and support
 
-## Credits
+Created for **AshinTop** and **Midnight Candy Club** with human-directed, AI-assisted design, programming, and review. Artwork and synthesized sounds are original to this project. The game needs no remote account; hosting may independently add scripts or request logs.
 
-Created for **AshinTop** and **Midnight Candy Club**, with AI-assisted design, implementation, and review. The Halloween illustrations, interface, and locally synthesized sound were produced for this project. This is an independent implementation of familiar 2048 gameplay; it does not imply endorsement by another game publisher. No analytics, payment system, or remote leaderboard is included in the game source.
+Enjoyed playing? **[Leave a GitHub Star](https://github.com/AshinTop/halloween-2048)**. For bug reports, include browser, iframe size, challenge link, and reproduction steps.
