@@ -2,11 +2,11 @@
 
 **Slide, merge, and wake the Pumpkin King.** Pumpkin 2048 brings the familiar 4×4 number puzzle into a moonlit Halloween garden, with original pumpkin artwork and three short, deterministic challenges that ask you to think about *where* a merge ends.
 
-[**GitHub Pages deployment target**](https://ashintop.github.io/halloween-2048/) · [Watch the visual introduction](docs/media/intro.mp4) · [How to play](#how-to-play) · [Embed the game](#embed-pumpkin-2048)
+[**Play online**](https://halloween-2048.crazy3d.org/) · [Watch the visual introduction](docs/media/intro.mp4) · [How to play](#how-to-play) · [Embed the game](#embed-pumpkin-2048)
 
-**Deployment status:** GitHub Pages is not live yet. The `ashintop.github.io` links in this document are intended deployment addresses. Use the local-run instructions until the hosted game has been published and verified.
+**Live deployment:** Play on Cloudflare using the link above. The site is deployed from this GitHub repository. Hosting scripts and request logging may be added by Cloudflare independently of the game code.
 
-[Video player and transcript (deployment target)](https://ashintop.github.io/halloween-2048/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
+[Video player and transcript](https://halloween-2048.crazy3d.org/intro.html) · [Captioned MP4 file](docs/media/intro.mp4). The 24-second silent introduction uses actual game screenshots; it is not a live gameplay recording.
 
 [![Pumpkin 2048 gameplay: a moonlit four-by-four number board with pumpkin tiles and garden milestones](docs/images/gameplay.jpg)](docs/media/intro.mp4)
 
@@ -57,9 +57,9 @@ Undo history is available during the current page session and retains up to 50 p
 
 The Share button prepares a result and game link. On supported devices it opens the system share sheet; otherwise it attempts to copy the text. The three trial links are reproducible:
 
-- [Lantern Trial 1](https://ashintop.github.io/halloween-2048/?trial=1)
-- [Lantern Trial 2](https://ashintop.github.io/halloween-2048/?trial=2)
-- [Lantern Trial 3](https://ashintop.github.io/halloween-2048/?trial=3)
+- [Lantern Trial 1](https://halloween-2048.crazy3d.org/?trial=1)
+- [Lantern Trial 2](https://halloween-2048.crazy3d.org/?trial=2)
+- [Lantern Trial 3](https://halloween-2048.crazy3d.org/?trial=3)
 
 In-progress trial sharing identifies the challenge without claiming it has been won. If sharing or clipboard access is unavailable, the game displays the result text.
 
@@ -124,7 +124,7 @@ Publish the repository root, then use its served URL:
 
 ```html
 <iframe
-  src="https://ashintop.github.io/halloween-2048/?embed=1"
+  src="https://halloween-2048.crazy3d.org/?embed=1"
   title="Pumpkin 2048 — Halloween number puzzle"
   width="100%"
   height="654"
@@ -148,11 +148,11 @@ The game sizes itself against the actual iframe viewport. Allocate space for any
 
 ## More Halloween games
 
-- **[Pumpkin Shift](https://github.com/AshinTop/halloween-pumpkin-shift)** — 12 numbered sliding puzzles with limited Moon Glides.
-- **[Witch’s Candy Blocks](https://github.com/AshinTop/halloween-block-blast)** — an 8×8 block-placement puzzle with potion orders.
-- **[Ghost Lanterns 3D](https://github.com/AshinTop/halloween-3d)** — spatial Lights Out puzzles with linked lanterns.
-- **[Trick-or-Treat TriPeaks](https://github.com/AshinTop/halloween-tripeaks)** — Halloween card chains and eight solvable rescue deals.
+- **[Pumpkin Shift](https://halloween-pumpkin-shift.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-pumpkin-shift) — 12 numbered sliding puzzles with limited Moon Glides.
+- **[Witch’s Candy Blocks](https://halloween-block-blast.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-block-blast) — an 8×8 block-placement puzzle with potion orders.
+- **[Ghost Lanterns 3D](https://halloween-3d.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-3d) — spatial Lights Out puzzles with linked lanterns.
+- **[Trick-or-Treat TriPeaks](https://halloween-tripeaks.crazy3d.org/)** · [Source](https://github.com/AshinTop/halloween-tripeaks) — Halloween card chains and eight solvable rescue deals.
 
 ## Credits
 
-Created for **AshinTop** and **Midnight Candy Club**, with AI-assisted design, implementation, and review. The Halloween illustrations, interface, and locally synthesized sound were produced for this project. This is an independent implementation of familiar 2048 gameplay; it does not imply endorsement by another game publisher. No analytics, payment system, or remote leaderboard is included.
+Created for **AshinTop** and **Midnight Candy Club**, with AI-assisted design, implementation, and review. The Halloween illustrations, interface, and locally synthesized sound were produced for this project. This is an independent implementation of familiar 2048 gameplay; it does not imply endorsement by another game publisher. No analytics, payment system, or remote leaderboard is included in the game source.

@@ -28,7 +28,7 @@ For a fixed desktop area:
 ```html
 <div style="position:relative;width:100%;height:654px;overflow:hidden">
   <iframe
-    src="https://YOUR-GAME-HOST/index.html"
+    src="https://halloween-2048.crazy3d.org/?embed=1"
     title="Pumpkin 2048"
     style="position:absolute;inset:0;width:100%;height:100%;border:0"
     scrolling="no"
